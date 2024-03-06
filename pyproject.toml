@@ -5,8 +5,9 @@ description = ""
 authors = ["ermesonf <ermeson.freitas@hotmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 streamlit = "^1.31.1"
+st-gsheets-connection = "^0.0.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
