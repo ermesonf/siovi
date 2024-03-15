@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
+from datetime import date
 
 # Display Title and Description
 st.title("Cadastro de Base de Dados das Ovitrampas")
@@ -51,16 +52,16 @@ DISTRITO = [
 
 # Onboarding New Vendor Form
 with st.form(key="test"):
-    ano = st.number_input(label="Ano*", step=1)
+    ano = st.number_input('Escolha um ano', min_value=2020, max_value=date.today().year, step=1)
     mes = st.selectbox("Mês*", options=MESES, index=None)
     semana = st.selectbox("Semana*", options=SEMANA)
     distrito = st.selectbox("Distrito*", options=DISTRITO)
     cod_bairro = st.number_input(label="Código do bairro", step=1)
     bairro = st.text_input(label="Bairro")
-    zona = st.number_input(label="Zona")
-    quarteirao = st.number_input(label="Código do Quarteirão")
-    satelite = st.number_input(label="Código do Satélite")
-    nu_ovos = st.number_input("Quantidade de Ovos")
+    zona = st.number_input(label="Zona", step=1)
+    quarteirao = st.number_input(label="Código do Quarteirão", step=1)
+    satelite = st.number_input(label="Código do Satélite", step=1)
+    nu_ovos = st.number_input("Quantidade de Ovos", step=1)
     obs = st.text_area(label="Observação")
 
     # Atualize o valor do campo bairro quando o usuário digitar o código do bairro
