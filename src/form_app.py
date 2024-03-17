@@ -16,11 +16,7 @@ existing_data = existing_data.dropna(how="all")
 
 # List of Business Types and Products
 # Ler o arquivo CSV em um DataFrame
-df = pd.read_csv("./data/bairros.csv")
-
-# Converter o DataFrame em um dicionário
-cod_bairro_para_bairro = pd.Series(df.bairro.values,index=df.cod_bairro).to_dict()
-bairro_para_cod_bairro = pd.Series(df.cod_bairro.values,index=df.bairro).to_dict()
+df_bairro = pd.read_csv("./data/bairros.csv")
 
 MESES = [
     "Janeiro",
@@ -50,14 +46,16 @@ DISTRITO = [
     "DAMOS"
 ]
 
+BAIRROS = df_bairro['bairro'].unique()
 # Onboarding New Vendor Form
 with st.form(key="test"):
-    ano = st.number_input('Escolha um ano', min_value=2020, max_value=date.today().year, step=1)
-    mes = st.selectbox("Mês*", options=MESES, index=None)
-    semana = st.selectbox("Semana*", options=SEMANA)
+    ano = st.number_input("Escolha o ano", min_value=2020, max_value=date.today().year, step=1)
+    mes = st.selectbox("Escolha o mês*", options=MESES, index=None)
+    semana = st.selectbox("Escolha a semana*", options=SEMANA)
     distrito = st.selectbox("Distrito*", options=DISTRITO)
     cod_bairro = st.number_input(label="Código do bairro", step=1)
-    bairro = st.text_input(label="Bairro")
+    bairro = st.selectbox("Escolha o bairro", options=BAIRROS)
+    #bairro = st.text_input(label="Bairro")
     zona = st.number_input(label="Zona", step=1)
     quarteirao = st.number_input(label="Código do Quarteirão", step=1)
     satelite = st.number_input(label="Código do Satélite", step=1)
