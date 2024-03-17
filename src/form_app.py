@@ -47,28 +47,27 @@ DISTRITO = [
 ]
 
 BAIRROS = df_bairro['bairro'].unique()
+
+INTERCORRENCIAS = [
+    "Extravio",
+    "Excluída",
+    "Casa fechada",
+    "Outros (especificar)"
+]
 # Onboarding New Vendor Form
 with st.form(key="test"):
-    ano = st.number_input("Escolha o ano", min_value=2020, max_value=date.today().year, step=1)
-    mes = st.selectbox("Escolha o mês*", options=MESES, index=None)
-    semana = st.selectbox("Escolha a semana*", options=SEMANA)
-    distrito = st.selectbox("Distrito*", options=DISTRITO)
-    cod_bairro = st.number_input(label="Código do bairro", step=1)
-    bairro = st.selectbox("Escolha o bairro", options=BAIRROS)
+    ano = st.number_input("Digite o Ano", min_value=2020, max_value=date.today().year, step=1)
+    mes = st.selectbox("Escolha o Mês*", options=MESES, index=None)
+    semana = st.selectbox("Escolha a Semana*", options=SEMANA)
+    distrito = st.selectbox("Escolha o Distrito*", options=DISTRITO)
+    cod_bairro = st.number_input(label="Digite o Código do bairro", step=1)
+    bairro = st.selectbox("Escolha o Bairro", options=BAIRROS)
     #bairro = st.text_input(label="Bairro")
-    zona = st.number_input(label="Zona", step=1)
-    quarteirao = st.number_input(label="Código do Quarteirão", step=1)
-    satelite = st.number_input(label="Código do Satélite", step=1)
-    nu_ovos = st.number_input("Quantidade de Ovos", step=1)
-    obs = st.text_area(label="Observação")
-
-    # Atualize o valor do campo bairro quando o usuário digitar o código do bairro
-    # if cod_bairro in cod_bairro_para_bairro:
-    #     bairro.text_input(label="Bairro", value=cod_bairro_para_bairro[cod_bairro])
-
-    # Atualize o valor do campo código do bairro quando o usuário digitar o nome do bairro
-    # if bairro in bairro_para_cod_bairro:
-    #     cod_bairro.number_input(label="Código do bairro", step=1, value=bairro_para_cod_bairro[bairro])
+    zona = st.number_input(label="Digite a Zona", step=1)
+    quarteirao = st.number_input(label="Digite o Código do Quarteirão", step=1)
+    satelite = st.number_input(label="Digite o Código do Satélite", step=1)
+    nu_ovos = st.number_input("Digite a Quantidade de Ovos", step=1)
+    intercorrencia = st.text_area(label="Escolha a Intercorrência", options=INTERCORRENCIAS)
 
     # Mark mandatory fields
     st.markdown("**Obrigatório*")
@@ -90,7 +89,7 @@ with st.form(key="test"):
                     "COD_QT": quarteirao,
                     "COD_SATELITE": satelite,
                     "NU_OVOS": nu_ovos,
-                    "OBS": obs
+                    "INTERCOR": intercorrencia
                 }
             ]
         )
