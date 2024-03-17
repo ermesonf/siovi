@@ -67,7 +67,8 @@ with st.form(key="test"):
     quarteirao = st.number_input(label="Digite o Código do Quarteirão", step=1)
     satelite = st.number_input(label="Digite o Código do Satélite", step=1)
     nu_ovos = st.number_input("Digite a Quantidade de Ovos", step=1)
-    intercorrencia = st.text_area(label="Escolha a Intercorrência", options=INTERCORRENCIAS)
+    intercorrencia = st.selectbox(label="Escolha a Intercorrência", options=INTERCORRENCIAS)
+    obs = st.text_input(label="Observações")
 
     # Mark mandatory fields
     st.markdown("**Obrigatório*")
@@ -89,7 +90,8 @@ with st.form(key="test"):
                     "COD_QT": quarteirao,
                     "COD_SATELITE": satelite,
                     "NU_OVOS": nu_ovos,
-                    "INTERCOR": intercorrencia
+                    "INTERCOR": intercorrencia,
+                    "OBS": obs
                 }
             ]
         )
