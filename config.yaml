@@ -1,0 +1,19 @@
+credentials:
+  usernames:
+    ermeson:
+      email: None
+      logged_in: False # Will be managed automatically
+      name: Ermeson Freitas
+      password: $2b$12$u36Mq3b6mBqniAXofqSdH.kzLBhKItK985LL9x682xFTN2h32lvHS # Will be hashed automatically
+    shirley:
+      email: None
+      logged_in: False # Will be managed automatically
+      name: Rebecca Briggs
+      password: $2b$12$LdFL.bTDw./32PwVx/6Q2eRmNG6V1RwdYtKP4NK7HFRj6gSymg1SG # Will be hashed automatically
+cookie:
+  expiry_days: 30
+  key: some_signature_key # Must be string
+  name: some_cookie_name
+preauthorized:
+  emails:
+  - example@gmail.com
