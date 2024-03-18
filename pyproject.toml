@@ -8,6 +8,7 @@ authors = ["ermesonf <ermeson.freitas@hotmail.com>"]
 python = "^3.11"
 streamlit = "^1.31.1"
 st-gsheets-connection = "^0.0.4"
+streamlit-authenticator = "^0.3.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

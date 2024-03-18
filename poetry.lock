@@ -43,6 +43,18 @@ tests-mypy = ["mypy (>=1.6)", "pytest-mypy-plugins"]
 tests-no-zope = ["attrs", "cloudpickle", "hypothesis", "pympler", "pytest-xdist", "pytest (>=4.3.0)"]
 
 [[package]]
+name = "bcrypt"
+version = "4.1.2"
+description = "Modern password hashing for your software and your servers"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+tests = ["pytest (>=3.2.1,!=3.3.0)"]
+typecheck = ["mypy"]
+
+[[package]]
 name = "blinker"
 version = "1.7.0"
 description = "Fast, simple object-to-object and broadcast signaling"
@@ -108,6 +120,17 @@ description = "DuckDB in-process database"
 category = "main"
 optional = false
 python-versions = ">=3.7.0"
+
+[[package]]
+name = "extra-streamlit-components"
+version = "0.1.71"
+description = "An all-in-one place, to find complex or just natively unavailable components on streamlit."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+streamlit = ">=1.18.0"
 
 [[package]]
 name = "gitdb"
@@ -485,6 +508,20 @@ plugins = ["importlib-metadata"]
 windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "pyjwt"
+version = "2.8.0"
+description = "JSON Web Token implementation in Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+crypto = ["cryptography (>=3.4.0)"]
+dev = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.4.0)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "pre-commit"]
+docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
+tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
+
+[[package]]
 name = "pytest"
 version = "5.4.3"
 description = "pytest: simple powerful testing with Python"
@@ -524,6 +561,14 @@ description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "pyyaml"
+version = "6.0.1"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "referencing"
@@ -700,6 +745,21 @@ watchdog = {version = ">=2.1.5", markers = "platform_system != \"Darwin\""}
 snowflake = ["snowflake-snowpark-python (>=0.9.0)", "snowflake-connector-python (>=2.8.0)"]
 
 [[package]]
+name = "streamlit-authenticator"
+version = "0.3.1"
+description = "A secure authentication module to validate user credentials in a Streamlit application."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+bcrypt = ">=3.1.7"
+extra-streamlit-components = ">=0.1.60"
+PyJWT = ">=2.3.0"
+PyYAML = ">=5.3.1"
+streamlit = ">=1.25.0"
+
+[[package]]
 name = "tenacity"
 version = "8.2.3"
 description = "Retry code until it succeeds"
@@ -831,12 +891,13 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-ena
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.11"
-content-hash = "0a9e606409ce898fc43dfbde903dbe63b19a06758b0f0fae564fee4cb0c97453"
+content-hash = "dbf5bfe665054cff17e93a0f6939f02a8040e39ec4856adefebbb9251b547682"
 
 [metadata.files]
 altair = []
 atomicwrites = []
 attrs = []
+bcrypt = []
 blinker = []
 cachetools = []
 certifi = []
@@ -845,6 +906,7 @@ click = []
 colorama = []
 decorator = []
 duckdb = []
+extra-streamlit-components = []
 gitdb = []
 gitpython = []
 google-auth = []
@@ -875,9 +937,11 @@ pyasn1 = []
 pyasn1-modules = []
 pydeck = []
 pygments = []
+pyjwt = []
 pytest = []
 python-dateutil = []
 pytz = []
+pyyaml = []
 referencing = []
 requests = []
 requests-oauthlib = []
@@ -890,6 +954,7 @@ sql-metadata = []
 sqlparse = []
 st-gsheets-connection = []
 streamlit = []
+streamlit-authenticator = []
 tenacity = []
 toml = []
 toolz = []
