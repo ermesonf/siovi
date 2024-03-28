@@ -13,3 +13,5 @@ df = pd.DataFrame(data)
 df = df.dropna(how='all')
 
 st.dataframe(df)
+
+# teste temp
